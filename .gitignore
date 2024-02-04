@@ -1,0 +1,12 @@
+*.jspf
+!doc/example.jspf
+*.m3u
+!doc/example.m3u
+*.jpg
+*.png
+*.mp3
+*.ogg
+!example-mixtape/*
+*.bak
+*~
+*.swp

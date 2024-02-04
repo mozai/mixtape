@@ -1,0 +1,64 @@
+*{border:0;font-size:100%;line-height:1;margin:0;padding:0;vertical-align:baseline}
+:root {
+ /* default skin "Crab" in case someone forgot to define SKINLIST */
+ --con-bg1:#666;--con-bg2:#333;
+ --con-fg:#fff; --con-fg2:#000;
+ --con-font:"Verdana,Arial,sans-serif";
+ --scrub-bg:#666;--scrub-bg2:#333;--scrub-fg:#c00;
+ --track-null:#000;--track-hr:#000;
+ --track-bg:#999;--track-fg:#000; /* not playing */
+ --track-bg2:#c99;--track-fg2:#000; /* hover */
+ --track-bg3:#f42123;--track-fg3:#fff; /* selected */
+ --track-font:"Verdana,Arial,sans-serif";
+}
+body{background-color:var(--track-null);color:var(--track-fg);font-family:var(--track-font);font-size:10.5pt}
+h1{font-size:200%}h2{font-size:150%}h1,h2,p{padding:.2em}
+::-webkit-scrollbar{width: 8px}
+::-webkit-scrollbar-track{background-color:var(--con-bg2)}
+::-webkit-scrollbar-thumb{background-color:var(--con-bg2);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background-color:var(--con-fg)}
+
+/* easier to hide/unhide things by using .classList.toggle() */
+.dis-none{display:none}
+
+/* the buttons at the top */
+#div-con{background:linear-gradient(to bottom,var(--con-bg1) 0%,var(--con-bg2) 100%);height:18px;left:0;position:fixed;top:0;width:100%}
+#tab-con{border-collapse:separate;border-spacing:1px;height:100%;width:100%}
+#tab-con td{background:linear-gradient(to bottom,var(--con-bg1) 0%,var(--con-bg2) 100%);border-spacing:0;border-width:0;color:var(--con-fg);cursor:pointer;font-size:10.5pt;padding:0;text-align:center;vertical-align:middle}
+#tab-con td:hover{color:var(--con-fg2)}
+.con{width:20px}
+#td-list{width:80px}
+#td-list select,#td-list select option{background:transparent;border:0;color:var(--con-fg);font-family:var(--con-font);font-size:10.5pt;height:16px;padding:0}
+#time-now,#time-remaining,#time-end{width:5em;}
+#scrubber-progress{background:var(--scrub-bg);height:100%;position:relative}
+#scrubber-track{background:var(--scrub-bg2);height:6px;width:100%}
+#scrubber{background:var(--scrub-fg);border:1px solid var(--scrub-fg);display:inline-block;height:8px;position:absolute;right:0;transform:translate(0,-2px);width:3px;-ms-transform:translate(0,-2px);-webkit-transform:translate(0,-2px)}
+
+/* the info panel pop-in */
+#info{background-color:var(--track-bg);border:1px solid var(--track-fg);color:var(--track-fg);max-height:300px;max-width:300px;padding:.2em;position:fixed;right:0;top:18px;width:40em}
+#info a{color:var(--track-fg)}
+#info hr{border-top:1px solid var(--track-hr);padding-top:.2em}
+#td-skin{padding:.2em}
+
+/* not really a table, but a long list of <div> one for each track */
+#tracks-table{color:var(--track-fg);margin-top:18px;width:100%}
+#tracks-table div{background-color:var(--track-bg);border:1px solid var(--track-hr);cursor:pointer;padding:5px}
+#tracks-table div:hover{background-color:var(--track-bg2);color:var(--track-fg2)}
+#tracks-table div.selected{background-color:var(--track-bg3);color:var(--track-fg3);font-weight:700}
+
+/* the cover-art pop-in */
+#art{background-color:rgba(0,0,0,0.1);bottom:0;height:33vw;max-height:300px;max-width:533px;padding:1px;position:fixed;right:0;text-align:center}
+#art img{height:33vw;max-height:300px;max-width:533px}
+
+/* the works-on-mobile-phone stuff */
+@media(max-device-width:700px){
+ #art img{height:33vw;max-height:300px;max-width:300px}
+ .con{width: 30px}
+ #div-con{height:70px}
+ #info{top:70px}
+ #tab-con{height:50px}
+ #time-bar{bottom:10px;left:0;position:absolute;width:100%}
+ #time-end{display:none}
+ #tracks-table div{font-size:10.5pt;}
+ #tracks-table{margin-top:70px;}
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head><meta charset=utf-8>
+<meta name=viewport content=initial-scale=1,maximum-scale=1,user-scalable=0,width=device-width>
+<title>Jukebox | HTML5 Player</title>
+<link href=./fontawesome-651.css rel=stylesheet>
+<link href=./jukebox.css rel=stylesheet>
+<script src=./config.js></script>
+<script src=./jukebox.js></script>
+</head><body>
+<div id=div-con><table id=tab-con><tr>
+<td id=td-play class=con><i class="fa fa-play"></i></td>
+<td id=td-prev class=con><i class="fa fa-step-backward"></i></td>
+<td id=td-next class=con><i class="fa fa-step-forward"></i></td>
+<td id=td-loop class=con><i class="fa fa-repeat"></i></td>
+<td id=td-sort class=con><i class="fa fa-arrow-down-1-9"></i></td>
+<td id=td-loud class=con><i class="fa fa-volume-high"></i></td>
+<td id=time-now></td>
+<td id=time-bar><div id=scrubber-track><div id=scrubber-progress><div id=scrubber></div></div></div></td>
+<td id=time-end></td>
+<td id=td-info class=con><i class="fa">?</i></td>
+<td id=td-list><select></select></td>
+</tr></table></div>
+<div id=info class=dis-none>
+<div>
+<h2>HTML5 jukebox</h2>
+Built by Mozai upon work by FPGAminer, inspired by <i><a href=https://vipvgm.net>Cats777</a></i>
+</div>
+<div id=pl-info><hr>
+<p id=pl-annotation>Playlist comments: <span id=pl-annotation-2></span></p>
+</div>
+<div id=configswitches><hr>
+<div>Show timecodes&nbsp;<input type=checkbox id=cfg-showtimes></input></div>
+<div>Skin: <span id=cfg-skin></span>&nbsp;<button id=td-skin type=button> -&gt; </button></div>
+</div>
+</p>
+</div>
+<div id=tracks-table></div>
+<div id=art class=dis-none></div>
+<audio id=audio></audio>
+</body></html>
