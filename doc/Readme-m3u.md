@@ -12,30 +12,32 @@ Records that start with '#' are ignored.  If the file ends in
 as UTF-8 Unicode instead of 7-bit ASCII.
 
 Start the file with a `#EXTM3U` record and you can add metadata before
-each record.  Some metadata must only appear once (1) in each file:
+each record.  Records marked with "(1)" can only appear once in the
+entire file.  These two are always supported, what follows are extentions
+that may not be recognized by other software.
 
 * `#EXTM3U` (1) must be first record
 * `#EXTINF:` duration in seconds, comma, display text
 
-The rest are not always supported.  The IPTV addtions were
+The IPTV addtions were:
 
-* `#EXTINF:` duration in seconds, comma, key=value pairs, comma, display text
+* `#EXTINF:` duration in seconds, comma, _key=value pairs, comma,_ display text
 * `#PLAYLIST:` (1) display text for the playlist as a whole
-* `#EXTGRP:` start of a named group
+* `#EXTGRP:` start of a named group _(how do I end a group?)_
 
-Then the Albumlist additions by Winamp 
+The Winamp additions for Albumlist (seems it assumes only one album per playlist):
 
 * `#EXTALB:` (1) display text for the album/grouping of the next location
 * `#EXTART:` (1) display text for the "albumartist", the performer of all tracks
 * `#EXTGENRE:` (1) catalogue text for genre
 
-Then some stuff added by birdcagesoft
+The Birdcagesoft additions:
 
 * `#EXTM3A:` "playlist for tracks or chapters of an album in a single file"
 * `#EXTBYT:` size of what's at the next location, in bytes
 * `#EXTBIN:` binary data follows, usually concatenated MP3s
 
-These ones are really not supported
+These next two are rarely supported:
 
 * `#EXTENC:` (1) text encoding, must be second line. i.e. "UTF-8"
 * `#EXTIMG:` location of artwork to display while playing this media
@@ -43,6 +45,5 @@ These ones are really not supported
 There are twenty more `#EXT-X-...` types added by Apple, described
 in RFC8216 for use in video streams, but I won't bother mentioning them.  
 
-I noticed similarity with XSPF / JSPF.  Maybe could make an m3u interpreter.
-Update 2023-12-17: I did in Javascript.
+I ended up using this instead of JSPF/XSPF and I prefer it.
 
